@@ -168,11 +168,26 @@ def update_product(inventory, name, new_price=None, new_quantity=None):
     if not found:
         print("There isn't any product with that name") 
     return     
+
+
+def product_delete(inventory, name):
+
+    while True:
+        if not name:    
+            name = validate_name("Which is the product you want to delete: ")
+            break
     
-
-
-
-# def eliminar_producto(inventario, nombre):
+    found = False
+    
+    for product in inventory:
+        if product["name"] == name:
+            found = True
+            inventory.remove(product)
+            print(f"The product {name} has been remove")
+            return
+    
+    if not found:
+        print("There isn't any product with that name")
 
 # def calcular_estadisticas(inventario):
 
